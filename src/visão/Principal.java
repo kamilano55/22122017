@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -502,7 +504,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -539,7 +541,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -654,6 +656,11 @@ public final class Principal extends javax.swing.JFrame {
             txtTitulo.requestFocus();
             JOptionPane.showMessageDialog(null, "O campo Título é obrigatório.","AVISO",JOptionPane.WARNING_MESSAGE);
         return;
+        }
+        if(lblNomeImagem.getText(). equals("")){
+                txtTitulo.requestFocus();
+                JOptionPane.showMessageDialog(null, "A escolha da imagem é obrigatória! Click duas vezes no campo da imagem para selecionar.","AVISO",JOptionPane.WARNING_MESSAGE);
+        return;
     }
         Produto p = new Produto();
         ProdutoDAO dao = new ProdutoDAO();
@@ -667,7 +674,7 @@ public final class Principal extends javax.swing.JFrame {
 //          Cria novo registro
             dao.create(p);
             readPrincipal();
-            
+        
 //  Reinicia campos e botões
 //      Limpa os campos desabilita campos
             txtTitulo.setText("");
@@ -675,7 +682,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText("");
-            lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
             txtTitulo.setEnabled(false);
             cbGenero.setEnabled(false);
             cbClassificacao.setEnabled(false);
@@ -767,7 +774,6 @@ public final class Principal extends javax.swing.JFrame {
                  } catch (IOException ex) {
                      JOptionPane.showMessageDialog(null, "Falha na criação, dimensionamento ou gravação do arquivo imagem");
                  }
-                
                  
              } else{
                  JOptionPane.showMessageDialog(null, "Selecione um arquivo de imagem válido");
@@ -797,7 +803,7 @@ public final class Principal extends javax.swing.JFrame {
         cbClassificacao.setSelectedIndex(0);
         jTextSinopse.setText("");
         lblNomeImagem.setText("");
-        lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\Render DVD.png"));
+        lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
         
 //  Normaliza os botões        
         btnAtualizar.setEnabled(false);
@@ -815,7 +821,7 @@ public final class Principal extends javax.swing.JFrame {
       cbGenero.setSelectedIndex(0);
       cbClassificacao.setSelectedIndex(0);
       jTextSinopse.setText("");
-      lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\Render DVD.png"));
+      lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
       lblNomeImagem.setText("");
       txtTitulo.requestFocus();
       
