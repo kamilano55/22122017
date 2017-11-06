@@ -5,7 +5,9 @@
  */
 
 package visão;
-    import javax.swing.ImageIcon;
+import connection.ConnectionFactory;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +18,14 @@ public class Menu extends javax.swing.JFrame {
     /** Creates new form Menu */
     public Menu() {
         initComponents();
+        Connection con = ConnectionFactory.getConnection();
+        if (con != null) {
+            lblConMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
+            
+        } else {
+            lblConMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+            
+        }
     }
 
     /** This method is called from within the constructor to
@@ -28,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        lblConMenu = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuColecao = new javax.swing.JMenu();
         jSubColDvd = new javax.swing.JMenuItem();
@@ -94,10 +105,18 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lblConMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblConMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(1063, 677));
@@ -163,6 +182,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jSubColDvd;
     private javax.swing.JMenuItem jSubFerAgenda;
     private javax.swing.JMenuItem jSubSairSair;
+    private javax.swing.JLabel lblConMenu;
     // End of variables declaration//GEN-END:variables
 
 }

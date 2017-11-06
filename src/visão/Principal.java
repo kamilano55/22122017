@@ -5,6 +5,7 @@
  */
 package visão;
 
+import connection.ConnectionFactory;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -13,11 +14,10 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -46,7 +46,16 @@ public final class Principal extends javax.swing.JFrame {
 //        URL caminhoIcone = getClass().getResource("/imagens/rolo-de-filme.png");
 //        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoIcone);
 //        this.setIconImage(iconeTitulo);
+
+        Connection con = ConnectionFactory.getConnection();
         
+        if (con != null) {
+            lblConPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
+            
+        } else {
+            lblConPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+            
+        }
         
         
 //  Chamada da classe responsável pelo controle da jTableModel
@@ -129,6 +138,7 @@ public final class Principal extends javax.swing.JFrame {
         btnBusca = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        lblConPrincipal = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -445,7 +455,9 @@ public final class Principal extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
+                .addComponent(lblConPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -458,10 +470,12 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblHora, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblHora, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblConPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -504,7 +518,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -541,7 +555,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -579,7 +593,7 @@ public final class Principal extends javax.swing.JFrame {
                     
                     ImageIcon icone = new ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\" + nomeImagem);
                     lblImagem.setIcon(icone);
-                    
+                    lblNomeImagem.setText(nomeImagem);
                 } else {
                     
                     JOptionPane.showMessageDialog(null, "Não existe Imagem para este registro");
@@ -624,7 +638,7 @@ public final class Principal extends javax.swing.JFrame {
                     
                     ImageIcon icone = new ImageIcon("C:\\Users\\Pretinho\\Pictures\\dvdImagens\\" + nomeImagem);
                     lblImagem.setIcon(icone);
-                    
+                    lblNomeImagem.setText(nomeImagem);
                 } else {
                     
                     JOptionPane.showMessageDialog(null, "Não existe Imagem para este registro");
@@ -674,7 +688,8 @@ public final class Principal extends javax.swing.JFrame {
 //          Cria novo registro
             dao.create(p);
             readPrincipal();
-        
+            
+            
 //  Reinicia campos e botões
 //      Limpa os campos desabilita campos
             txtTitulo.setText("");
@@ -682,7 +697,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText("");
-            lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
             txtTitulo.setEnabled(false);
             cbGenero.setEnabled(false);
             cbClassificacao.setEnabled(false);
@@ -758,7 +773,6 @@ public final class Principal extends javax.swing.JFrame {
                 ImageIcon icone1 = new ImageIcon(path);
                 Image img = icone1.getImage().getScaledInstance(lblImagem.getWidth(), lblImagem.getHeight(), Image.SCALE_DEFAULT);
                 lblImagem.setIcon(new ImageIcon(img));
-                
                 String nomeImagem = System.currentTimeMillis() + ".jpg";
                 lblNomeImagem.setText(nomeImagem);
                 
@@ -803,7 +817,8 @@ public final class Principal extends javax.swing.JFrame {
         cbClassificacao.setSelectedIndex(0);
         jTextSinopse.setText("");
         lblNomeImagem.setText("");
-        lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
+        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+        
         
 //  Normaliza os botões        
         btnAtualizar.setEnabled(false);
@@ -821,7 +836,7 @@ public final class Principal extends javax.swing.JFrame {
       cbGenero.setSelectedIndex(0);
       cbClassificacao.setSelectedIndex(0);
       jTextSinopse.setText("");
-      lblImagem.setIcon(new javax.swing.ImageIcon("./imagens/Render DVD.png"));
+      lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
       lblNomeImagem.setText("");
       txtTitulo.requestFocus();
       
@@ -900,6 +915,7 @@ public final class Principal extends javax.swing.JFrame {
     private javax.swing.JTable jTProdutos;
     private javax.swing.JTextArea jTextSinopse;
     private javax.swing.JLabel lblClassificacao;
+    private javax.swing.JLabel lblConPrincipal;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblHora;

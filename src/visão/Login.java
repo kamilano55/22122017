@@ -5,7 +5,9 @@
  */
 package visão;
 
+import connection.ConnectionFactory;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 /**
@@ -13,12 +15,21 @@ import javax.swing.ImageIcon;
  * @author Pretinho
  */
 public class Login extends javax.swing.JFrame {
+Connection con = null;
 
     /**
      * Creates new form TelaLogin
      */
     public Login() {
         initComponents();
+        Connection con = ConnectionFactory.getConnection();
+        if (con != null) {
+            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
+            
+        } else {
+            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+            
+        }
     }
 
     /**
@@ -37,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         btnAcessar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        lblConLogin = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
@@ -93,6 +105,8 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnSair);
         btnSair.setBounds(420, 120, 57, 23);
+        getContentPane().add(lblConLogin);
+        lblConLogin.setBounds(260, 110, 40, 50);
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd-rolo.png"))); // NOI18N
         lblFundo.setText(" ");
@@ -191,6 +205,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblConLogin;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUsuario;
