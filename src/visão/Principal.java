@@ -43,7 +43,7 @@ public final class Principal extends javax.swing.JFrame {
 //        O código abaixo troca o icone do JFrame e já foi testado no momento usei a configuração de propriedades
 //        do jFrame no NetBeans para resolver o problema. 
 
-//        URL caminhoIcone = getClass().getResource("/imagens/rolo-de-filme.png");
+//        URL caminhoIcone = getClass().getResource("../imagens/rolo-de-filme.png");
 //        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoIcone);
 //        this.setIconImage(iconeTitulo);
 
@@ -279,7 +279,9 @@ public final class Principal extends javax.swing.JFrame {
         btnBusca.setBackground(new java.awt.Color(51, 51, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Consulta.png"))); // NOI18N
         btnBusca.setText("CONSULTA");
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscaActionPerformed(evt);
@@ -289,9 +291,9 @@ public final class Principal extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(255, 0, 51));
         btnSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arrow_redo.png"))); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/IconReturn.png"))); // NOI18N
         btnSair.setText("SAIR");
-        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -322,7 +324,7 @@ public final class Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 83, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,10 +339,10 @@ public final class Principal extends javax.swing.JFrame {
                                 .addComponent(lblNomeImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBusca)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(btnBusca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,10 +392,11 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4Imagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1))
         );
 
         lblData.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -440,7 +443,7 @@ public final class Principal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1161, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
