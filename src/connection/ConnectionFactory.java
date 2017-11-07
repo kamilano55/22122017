@@ -27,15 +27,19 @@ public class ConnectionFactory {
     private static final String PASS = "mipilapanopo";
         
     public static Connection getConnection(){
-        java.sql.Connection conexao = null;
-        
         try {
+            //        java.sql.Connection conexao = null;
             Class.forName(DRIVER);
-            conexao = DriverManager.getConnection(URL, USER, PASS);
-            return conexao;
-        } catch (Exception e) {
-            return null;
-            
+            return DriverManager.getConnection(URL, USER, PASS);
+//        try {
+//            Class.forName(DRIVER);
+//            conexao = DriverManager.getConnection(URL, USER, PASS);
+//            return conexao;
+//        } catch (ClassNotFoundException | SQLException e) {
+//            return null;
+//        }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new RuntimeException("Erro na conexão: ",ex);
         }
     }
  

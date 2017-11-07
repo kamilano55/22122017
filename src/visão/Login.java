@@ -5,9 +5,11 @@
  */
 package visão;
 
-import connection.ConnectionFactory;
+//import connection.ConnectionFactory;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 /**
@@ -15,26 +17,27 @@ import javax.swing.ImageIcon;
  * @author Pretinho
  */
 public class Login extends javax.swing.JFrame {
-Connection conexao = null;
-
+//Connection conexao = null;
+//PreparedStatement stmt = null;
+//ResultSet rs = null;
     /**
      * Creates new form TelaLogin
      */
     public Login() {
         initComponents();
-        conexao = ConnectionFactory.getConnection();
-
-        if (conexao != null) {
-            
-            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
-            
-        } else {
-            
-            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
-            btnAcessar.setEnabled(false);
-            txtUsuario.setEnabled(false);
-            jPasswordField1.setEnabled(false);
-        }
+//        conexao = ConnectionFactory.getConnection();
+//
+//        if (conexao != null) {
+//            
+//            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
+//            
+//        } else {
+//            
+//            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+//            btnAcessar.setEnabled(false);
+//            txtUsuario.setEnabled(false);
+//            jPasswordField1.setEnabled(false);
+//        }
     }
 
     /**
