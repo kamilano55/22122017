@@ -47,17 +47,6 @@ public final class Principal extends javax.swing.JFrame {
 //        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoIcone);
 //        this.setIconImage(iconeTitulo);
 
-        Connection con = ConnectionFactory.getConnection();
-        
-        if (con != null) {
-            lblConPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
-            
-        } else {
-            lblConPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
-            
-        }
-        
-        
 //  Chamada da classe responsável pelo controle da jTableModel
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));

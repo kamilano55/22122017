@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,15 +27,15 @@ public class ConnectionFactory {
     private static final String PASS = "mipilapanopo";
         
     public static Connection getConnection(){
-        java.sql.Connection con = null;
+        java.sql.Connection conexao = null;
+        
         try {
-            
             Class.forName(DRIVER);
-            con = DriverManager.getConnection(URL, USER, PASS);
-            return con;
-            
-        } catch (ClassNotFoundException | SQLException ex) {
+            conexao = DriverManager.getConnection(URL, USER, PASS);
+            return conexao;
+        } catch (Exception e) {
             return null;
+            
         }
     }
  

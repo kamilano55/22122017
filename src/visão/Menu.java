@@ -5,8 +5,6 @@
  */
 
 package visão;
-import connection.ConnectionFactory;
-import java.sql.Connection;
 import javax.swing.ImageIcon;
 
 /**
@@ -18,14 +16,6 @@ public class Menu extends javax.swing.JFrame {
     /** Creates new form Menu */
     public Menu() {
         initComponents();
-        Connection con = ConnectionFactory.getConnection();
-        if (con != null) {
-            lblConMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
-            
-        } else {
-            lblConMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
-            
-        }
     }
 
     /** This method is called from within the constructor to

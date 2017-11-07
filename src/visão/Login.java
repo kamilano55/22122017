@@ -15,20 +15,25 @@ import javax.swing.ImageIcon;
  * @author Pretinho
  */
 public class Login extends javax.swing.JFrame {
-Connection con = null;
+Connection conexao = null;
 
     /**
      * Creates new form TelaLogin
      */
     public Login() {
         initComponents();
-        Connection con = ConnectionFactory.getConnection();
-        if (con != null) {
+        conexao = ConnectionFactory.getConnection();
+
+        if (conexao != null) {
+            
             lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
             
         } else {
-            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
             
+            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+            btnAcessar.setEnabled(false);
+            txtUsuario.setEnabled(false);
+            jPasswordField1.setEnabled(false);
         }
     }
 
@@ -48,8 +53,8 @@ Connection con = null;
         lblSenha = new javax.swing.JLabel();
         btnAcessar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        lblConLogin = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
+        lblConLogin = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -105,13 +110,15 @@ Connection con = null;
         });
         getContentPane().add(btnSair);
         btnSair.setBounds(420, 120, 57, 23);
-        getContentPane().add(lblConLogin);
-        lblConLogin.setBounds(260, 110, 40, 50);
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd-rolo.png"))); // NOI18N
         lblFundo.setText(" ");
         getContentPane().add(lblFundo);
         lblFundo.setBounds(0, 0, 500, 170);
+
+        lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png"))); // NOI18N
+        getContentPane().add(lblConLogin);
+        lblConLogin.setBounds(260, 110, 40, 50);
 
         setSize(new java.awt.Dimension(511, 202));
         setLocationRelativeTo(null);
