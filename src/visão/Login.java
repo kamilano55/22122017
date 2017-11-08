@@ -7,11 +7,13 @@ package visão;
 
 //import connection.ConnectionFactory;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import model.dao.UsuarioDAO;
 /**
  *
  * @author Pretinho
@@ -25,6 +27,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+//        As linhas abaixo substituem o icone na tela para informar se a conexão está ativa ou não.Caso não, desabilita botões
 //        conexao = ConnectionFactory.getConnection();
 //
 //        if (conexao != null) {
@@ -50,7 +53,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
@@ -67,13 +70,13 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                txtSenhaKeyPressed(evt);
             }
         });
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(310, 80, 180, 30);
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(310, 80, 180, 30);
 
         lblUsuario.setText("USUÁRIO:");
         getContentPane().add(lblUsuario);
@@ -128,13 +131,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-        if(txtUsuario.getText().equals("admin")&&jPasswordField1.getText().equals("124")){
-        Menu tela = new Menu();
-        tela.setVisible(true);
-        dispose();
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        
+        if (dao.checkLogin(txtUsuario.getText(), txtSenha.getText())){
+            new Menu().setVisible(true);
+            this.dispose();
         }else{
-             JOptionPane.showMessageDialog(rootPane, "Senha ou usuário inválidos");
-        }     
+            JOptionPane.showMessageDialog(null, "Senha ou usuário inválidos");
+        }
+            
     }//GEN-LAST:event_btnAcessarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -146,30 +152,30 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
-           jPasswordField1.requestFocus();
+           txtSenha.requestFocus();
        }
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
         // TODO add your handling code here:
         
         if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
            btnAcessar.requestFocus();
        }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAcessarKeyPressed
         
         if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
+//            
+            UsuarioDAO dao = new UsuarioDAO();
             
-            if (txtUsuario.getText().equals("admin") && jPasswordField1.getText().equals("124")){
-                Menu tela = new Menu();
-                tela.setVisible(true);
-                dispose();
-                
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "Senha ou usuário inválidos");
-            }
+        if (dao.checkLogin(txtUsuario.getText(), txtSenha.getText())){
+            new Menu().setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha ou usuário inválidos");
+        }
        }
     }//GEN-LAST:event_btnAcessarKeyPressed
 
@@ -213,12 +219,12 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcessar;
     private javax.swing.JButton btnSair;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblConLogin;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
