@@ -7,10 +7,6 @@ package visão;
 
 //import connection.ConnectionFactory;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
-//import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import model.dao.UsuarioDAO;
@@ -27,20 +23,21 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
 //        As linhas abaixo substituem o icone na tela para informar se a conexão está ativa ou não.Caso não, desabilita botões
-//        conexao = ConnectionFactory.getConnection();
-//
-//        if (conexao != null) {
+
+//        UsuarioDAO dao = new UsuarioDAO();
+//        
+//        if (dao.checkLogin("admin", "111")){
+//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
 //            
-//            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/conection-ok.png")));
-//            
-//        } else {
-//            
-//            lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/No-conection.png")));
+//        }else{
+//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-conection.png")));
 //            btnAcessar.setEnabled(false);
 //            txtUsuario.setEnabled(false);
-//            jPasswordField1.setEnabled(false);
+//            txtSenha.setEnabled(false);
 //        }
+        
     }
 
     /**
@@ -59,15 +56,20 @@ public class Login extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         btnAcessar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        lbliconBanco = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
-        lblConLogin = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
-        setIconImage(new ImageIcon(getClass().getResource("/imagens/dvd-rolo.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagens/Login.png")).getImage());
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -92,8 +94,9 @@ public class Login extends javax.swing.JFrame {
 
         lblSenha.setText("SENHA:");
         getContentPane().add(lblSenha);
-        lblSenha.setBounds(250, 80, 50, 30);
+        lblSenha.setBounds(260, 80, 50, 30);
 
+        btnAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/login2.png"))); // NOI18N
         btnAcessar.setText("ACESSAR");
         btnAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,27 +109,28 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAcessar);
-        btnAcessar.setBounds(320, 120, 90, 23);
+        btnAcessar.setBounds(310, 120, 130, 40);
 
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Consulta.png"))); // NOI18N
         btnSair.setText("SAIR");
+        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
             }
         });
         getContentPane().add(btnSair);
-        btnSair.setBounds(420, 120, 57, 23);
+        btnSair.setBounds(410, 170, 90, 31);
 
-        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd-rolo.png"))); // NOI18N
-        lblFundo.setText(" ");
+        lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png"))); // NOI18N
+        getContentPane().add(lbliconBanco);
+        lbliconBanco.setBounds(270, 150, 40, 40);
+
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Login.png"))); // NOI18N
         getContentPane().add(lblFundo);
-        lblFundo.setBounds(0, 0, 500, 170);
+        lblFundo.setBounds(0, 0, 256, 210);
 
-        lblConLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png"))); // NOI18N
-        getContentPane().add(lblConLogin);
-        lblConLogin.setBounds(260, 110, 40, 50);
-
-        setSize(new java.awt.Dimension(511, 202));
+        setSize(new java.awt.Dimension(511, 250));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,14 +146,13 @@ public class Login extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_btnAcessarActionPerformed
-
+    
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         System.exit(0);
         
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        // TODO add your handling code here:
         
         if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
            txtSenha.requestFocus();
@@ -157,7 +160,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioKeyPressed
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-        // TODO add your handling code here:
         
         if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
            btnAcessar.requestFocus();
@@ -178,6 +180,28 @@ public class Login extends javax.swing.JFrame {
         }
        }
     }//GEN-LAST:event_btnAcessarKeyPressed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+//        JOptionPane.showMessageDialog(this, evt);
+//        UsuarioDAO dao = new UsuarioDAO();
+//        JOptionPane.showMessageDialog(null, "Objeto criado");
+//        if (dao.checkLogin("admin", "111")){
+//            JOptionPane.showMessageDialog(null, "chamou a classe checkLogin");
+//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
+//            JOptionPane.showMessageDialog(null, "Entrou no if");
+//            
+//        }else{
+//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-conection.png")));
+//            JOptionPane.showMessageDialog(null, "Entrou no else");
+//            btnAcessar.setEnabled(false);
+//            txtUsuario.setEnabled(false);
+//            txtSenha.setEnabled(false);
+//        }
+        
+        
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -220,10 +244,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnAcessar;
     private javax.swing.JButton btnSair;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblConLogin;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lbliconBanco;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

@@ -42,13 +42,13 @@ public class UsuarioDAO {
             }
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha! No acesso ao banco de dados" +ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Falha no acesso ao DB Usuário" +ex.getMessage());
         }finally{
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
-        
+       
         return check;
         
     }
-    
+       
 }

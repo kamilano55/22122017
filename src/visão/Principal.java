@@ -134,7 +134,7 @@ public final class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciamento de DVD´s");
-        setIconImage(new ImageIcon(getClass().getResource("/imagens/dvd-rolo.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagens/Login.png")).getImage());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -153,10 +153,12 @@ public final class Principal extends javax.swing.JFrame {
         lblSinopse.setText("Sinópse");
 
         btnExcluir.setBackground(new java.awt.Color(51, 51, 255));
+        btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/application_delete.png"))); // NOI18N
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_delete.png"))); // NOI18N
         btnExcluir.setText("EXCLUIR");
         btnExcluir.setEnabled(false);
+        btnExcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -164,10 +166,12 @@ public final class Principal extends javax.swing.JFrame {
         });
 
         btnAtualizar.setBackground(new java.awt.Color(51, 51, 255));
+        btnAtualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/application_form_edit.png"))); // NOI18N
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_edit.png"))); // NOI18N
         btnAtualizar.setText("ATUALIZAR");
         btnAtualizar.setEnabled(false);
+        btnAtualizar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
@@ -200,10 +204,12 @@ public final class Principal extends javax.swing.JFrame {
         });
 
         btnSalvar.setBackground(new java.awt.Color(51, 51, 255));
+        btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/application_add.png"))); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_cadastro.png"))); // NOI18N
         btnSalvar.setText("SALVAR");
         btnSalvar.setEnabled(false);
+        btnSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -211,7 +217,7 @@ public final class Principal extends javax.swing.JFrame {
         });
 
         lblImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Render DVD.png"))); // NOI18N
+        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png"))); // NOI18N
         lblImagem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblImagemMouseClicked(evt);
@@ -240,9 +246,11 @@ public final class Principal extends javax.swing.JFrame {
         jLabel1.setText("Foto");
 
         btnNovo.setBackground(new java.awt.Color(51, 51, 255));
+        btnNovo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnNovo.setForeground(new java.awt.Color(255, 255, 255));
-        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book_go.png"))); // NOI18N
+        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_novo.png"))); // NOI18N
         btnNovo.setText("NOVO");
+        btnNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
@@ -250,10 +258,12 @@ public final class Principal extends javax.swing.JFrame {
         });
 
         btnLimpar.setBackground(new java.awt.Color(51, 51, 255));
+        btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arrow_redo.png"))); // NOI18N
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/limpar.png"))); // NOI18N
         btnLimpar.setText("LIMPAR");
         btnLimpar.setEnabled(false);
+        btnLimpar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparActionPerformed(evt);
@@ -266,8 +276,9 @@ public final class Principal extends javax.swing.JFrame {
         btnBusca.setBackground(new java.awt.Color(51, 51, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Consulta.png"))); // NOI18N
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar.png"))); // NOI18N
         btnBusca.setText("CONSULTA");
+        btnBusca.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,11 +286,11 @@ public final class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(255, 0, 51));
-        btnSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSair.setBackground(new java.awt.Color(51, 51, 255));
+        btnSair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/IconReturn.png"))); // NOI18N
-        btnSair.setText("SAIR");
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_home.png"))); // NOI18N
+        btnSair.setText("HOME");
         btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,7 +324,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 83, Short.MAX_VALUE)
+                        .addGap(0, 103, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,10 +336,10 @@ public final class Principal extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(lblNomeImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBusca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBusca)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -487,7 +498,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
         );
 
-        setSize(new java.awt.Dimension(1197, 764));
+        setSize(new java.awt.Dimension(1247, 761));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -508,7 +519,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png")));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -545,7 +556,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText(null);
-            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png")));
             
 //    Desabilita os campos            
             txtTitulo.setEnabled(false);
@@ -687,7 +698,7 @@ public final class Principal extends javax.swing.JFrame {
             cbClassificacao.setSelectedIndex(0);
             jTextSinopse.setText("");
             lblNomeImagem.setText("");
-            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+            lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png")));
             txtTitulo.setEnabled(false);
             cbGenero.setEnabled(false);
             cbClassificacao.setEnabled(false);
@@ -807,7 +818,7 @@ public final class Principal extends javax.swing.JFrame {
         cbClassificacao.setSelectedIndex(0);
         jTextSinopse.setText("");
         lblNomeImagem.setText("");
-        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png")));
         
         
 //  Normaliza os botões        
@@ -826,7 +837,7 @@ public final class Principal extends javax.swing.JFrame {
       cbGenero.setSelectedIndex(0);
       cbClassificacao.setSelectedIndex(0);
       jTextSinopse.setText("");
-      lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagens/Render DVD.png")));
+      lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_geral.png")));
       lblNomeImagem.setText("");
       txtTitulo.requestFocus();
       

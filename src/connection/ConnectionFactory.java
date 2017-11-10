@@ -28,16 +28,10 @@ public class ConnectionFactory {
         
     public static Connection getConnection(){
         try {
-            //        java.sql.Connection conexao = null;
+            
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
-//        try {
-//            Class.forName(DRIVER);
-//            conexao = DriverManager.getConnection(URL, USER, PASS);
-//            return conexao;
-//        } catch (ClassNotFoundException | SQLException e) {
-//            return null;
-//        }
+            
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException("Erro na conexão: ",ex);
         }

@@ -39,16 +39,16 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
-        setIconImage(new ImageIcon(getClass().getResource("/imagens/dvd-rolo.png")).getImage()
+        setIconImage(new ImageIcon(getClass().getResource("/imagens/Login.png")).getImage()
         );
         setPreferredSize(new java.awt.Dimension(1142, 247));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/internalframe.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo menu.png"))); // NOI18N
 
-        jMenuColecao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Coleção.png"))); // NOI18N
+        jMenuColecao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cole32.png"))); // NOI18N
         jMenuColecao.setText("Coleções");
 
-        jSubColDvd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/book_go.png"))); // NOI18N
+        jSubColDvd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_coleção.png"))); // NOI18N
         jSubColDvd.setText("DVD´s");
         jSubColDvd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,10 +59,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuColecao);
 
-        jMenuFerramenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ferramentas.png"))); // NOI18N
+        jMenuFerramenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ferramentas1.png"))); // NOI18N
         jMenuFerramenta.setText("Ferramentas");
 
-        jSubFerAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Agenda.png"))); // NOI18N
+        jSubFerAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agenda_1.png"))); // NOI18N
         jSubFerAgenda.setText("Agenda");
         jSubFerAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,12 +73,12 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuFerramenta);
 
-        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sair.png"))); // NOI18N
+        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
         jMenuSair.setText("Sair");
 
-        jSubSairSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sair.png"))); // NOI18N
+        jSubSairSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo32.png"))); // NOI18N
         jSubSairSair.setText("Sair");
-        jSubSairSair.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jSubSairSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jSubSairSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSubSairSairActionPerformed(evt);
@@ -94,7 +94,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(lblConMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblConMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(lblConMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
