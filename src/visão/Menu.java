@@ -59,7 +59,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuColecao);
 
-        jMenuFerramenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ferramentas1.png"))); // NOI18N
+        jMenuFerramenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/tool6.png"))); // NOI18N
         jMenuFerramenta.setText("Ferramentas");
 
         jSubFerAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agenda_1.png"))); // NOI18N
@@ -76,7 +76,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
         jMenuSair.setText("Sair");
 
-        jSubSairSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo32.png"))); // NOI18N
+        jSubSairSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
         jSubSairSair.setText("Sair");
         jSubSairSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jSubSairSair.addActionListener(new java.awt.event.ActionListener() {

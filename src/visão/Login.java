@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
 //            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
 //            
 //        }else{
-//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-conection.png")));
+//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-Conection.png")));
 //            btnAcessar.setEnabled(false);
 //            txtUsuario.setEnabled(false);
 //            txtSenha.setEnabled(false);
@@ -121,10 +121,8 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnSair);
         btnSair.setBounds(410, 170, 90, 31);
-
-        lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png"))); // NOI18N
         getContentPane().add(lbliconBanco);
-        lbliconBanco.setBounds(270, 150, 40, 40);
+        lbliconBanco.setBounds(260, 150, 40, 40);
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Login.png"))); // NOI18N
         getContentPane().add(lblFundo);
@@ -183,24 +181,19 @@ public class Login extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        boolean check = false;
+        
 //        JOptionPane.showMessageDialog(this, evt);
-//        UsuarioDAO dao = new UsuarioDAO();
-//        JOptionPane.showMessageDialog(null, "Objeto criado");
-//        if (dao.checkLogin("admin", "111")){
-//            JOptionPane.showMessageDialog(null, "chamou a classe checkLogin");
-//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
-//            JOptionPane.showMessageDialog(null, "Entrou no if");
-//            
-//        }else{
-//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-conection.png")));
-//            JOptionPane.showMessageDialog(null, "Entrou no else");
-//            btnAcessar.setEnabled(false);
-//            txtUsuario.setEnabled(false);
-//            txtSenha.setEnabled(false);
-//        }
-        
-        
-        
+        UsuarioDAO dao = new UsuarioDAO();
+         if (!dao.checkLogin("admin", "111")){
+             lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-Conection.png")));
+             btnAcessar.setEnabled(false);
+             txtUsuario.setEnabled(false);
+             txtSenha.setEnabled(false);
+             JOptionPane.showMessageDialog(null, "Login do administrador não confere ou BD não acessível");
+         }else{
+             lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
+         }
     }//GEN-LAST:event_formWindowOpened
 
     /**
