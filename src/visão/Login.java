@@ -5,7 +5,9 @@
  */
 package visão;
 
-//import connection.ConnectionFactory;
+import connection.ConnectionFactory;
+import java.sql.*;
+
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -15,15 +17,14 @@ import model.dao.UsuarioDAO;
  * @author Pretinho
  */
 public class Login extends javax.swing.JFrame {
-//Connection conexao = null;
-//PreparedStatement stmt = null;
-//ResultSet rs = null;
+Connection conexao = null;
+PreparedStatement stmt = null;
+ResultSet rs = null;
     /**
      * Creates new form TelaLogin
      */
     public Login() {
         initComponents();
-        
 //        As linhas abaixo substituem o icone na tela para informar se a conexão está ativa ou não.Caso não, desabilita botões
 
 //        UsuarioDAO dao = new UsuarioDAO();
@@ -181,16 +182,17 @@ public class Login extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        boolean check = false;
+//        boolean check = false;
         
 //        JOptionPane.showMessageDialog(this, evt);
         UsuarioDAO dao = new UsuarioDAO();
-         if (!dao.checkLogin("admin", "111")){
+        
+         if (!dao.checkConexao()){
              lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-Conection.png")));
              btnAcessar.setEnabled(false);
              txtUsuario.setEnabled(false);
              txtSenha.setEnabled(false);
-             JOptionPane.showMessageDialog(null, "Login do administrador não confere ou BD não acessível");
+//             JOptionPane.showMessageDialog(null, "Falha: Banco de dados ou tabela usuário não acessível");
          }else{
              lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
          }

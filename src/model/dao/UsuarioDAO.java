@@ -50,5 +50,29 @@ public class UsuarioDAO {
         return check;
         
     }
-       
+    public boolean checkConexao(){
+        
+//        
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        boolean check = false;
+        if (conexao != null){
+        
+          try {
+            stmt = (PreparedStatement) conexao.prepareStatement("SELECT * FROM usuario");
+            rs = stmt.executeQuery();
+            if (rs != null) {
+               check = true;
+            }
+            return check; 
+          } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null, "Falha no acesso a tabela Usuário" +ex.getMessage());
+            }finally{
+               ConnectionFactory.closeConnection(conexao, stmt, rs);
+            }
+        }
+        return check;
+    }   
 }
