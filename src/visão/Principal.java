@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -237,8 +239,8 @@ public final class Principal extends javax.swing.JFrame {
             jPanel4ImagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4ImagemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblImagem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -324,7 +326,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 103, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,7 +342,7 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBusca)
-                        .addContainerGap())))
+                        .addContainerGap(85, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,8 +391,8 @@ public final class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4Imagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(9, 9, 9)
+                        .addComponent(jPanel4Imagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -498,7 +500,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
         );
 
-        setSize(new java.awt.Dimension(1247, 761));
+        setSize(new java.awt.Dimension(1307, 766));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -689,6 +691,25 @@ public final class Principal extends javax.swing.JFrame {
 //          Cria novo registro
             dao.create(p);
             readPrincipal();
+            
+            //estas linhas salvam a imagem
+//            ImageIcon icone1 = new ImageIcon(lblPath.getText());
+//            Image img = icone1.getImage().getScaledInstance(lblImagem.getWidth(), lblImagem.getHeight(), Image.SCALE_DEFAULT);
+//            JOptionPane.showMessageDialog(null, img);
+//            String nomeImagem = lblNomeImagem.getText();
+//            String caminho = "C:\\Users\\Pretinho\\Pictures\\dvdImagens\\";
+//            File outputfile = new File(caminho + nomeImagem);
+//            BufferedImage bi = new BufferedImage(lblImagem.getWidth(), lblImagem.getHeight(), BufferedImage.TYPE_INT_RGB);
+//            Graphics2D g2d = bi.createGraphics();
+//                g2d.drawImage(img, null, null);
+//                g2d.dispose();
+//        try {
+//            ImageIO.write(bi, "jpg", outputfile);
+//            JOptionPane.showMessageDialog(null, "Imagem enviada com sucesso");
+//        } catch (IOException ex) {
+//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+            
             
             
 //  Reinicia campos e botões

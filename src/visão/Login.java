@@ -25,19 +25,6 @@ ResultSet rs = null;
      */
     public Login() {
         initComponents();
-//        As linhas abaixo substituem o icone na tela para informar se a conexão está ativa ou não.Caso não, desabilita botões
-
-//        UsuarioDAO dao = new UsuarioDAO();
-//        
-//        if (dao.checkLogin("admin", "111")){
-//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/conection-ok.png")));
-//            
-//        }else{
-//            lbliconBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/No-Conection.png")));
-//            btnAcessar.setEnabled(false);
-//            txtUsuario.setEnabled(false);
-//            txtSenha.setEnabled(false);
-//        }
         
     }
 
@@ -182,9 +169,6 @@ ResultSet rs = null;
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-//        boolean check = false;
-        
-//        JOptionPane.showMessageDialog(this, evt);
         UsuarioDAO dao = new UsuarioDAO();
         
          if (!dao.checkConexao()){

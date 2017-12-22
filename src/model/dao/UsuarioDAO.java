@@ -66,9 +66,9 @@ public class UsuarioDAO {
             if (rs != null) {
                check = true;
             }
-            return check; 
+//            return check; 
           } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null, "Falha no acesso a tabela Usuário" +ex.getMessage());
+               JOptionPane.showMessageDialog(null, "Falha no acesso ou não existe Usuário cadastrado" +ex.getMessage());
             }finally{
                ConnectionFactory.closeConnection(conexao, stmt, rs);
             }

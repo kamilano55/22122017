@@ -5,7 +5,16 @@
  */
 
 package visão;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
+
 
 /**
  *
@@ -27,27 +36,52 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        lblConMenu = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        lblUsuario = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuColecao = new javax.swing.JMenu();
         jSubColDvd = new javax.swing.JMenuItem();
         jMenuFerramenta = new javax.swing.JMenu();
         jSubFerAgenda = new javax.swing.JMenuItem();
+        jSubMenRepDvd = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
-        jSubSairSair = new javax.swing.JMenuItem();
+        jSubMenuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
         setIconImage(new ImageIcon(getClass().getResource("/imagens/Login.png")).getImage()
         );
         setPreferredSize(new java.awt.Dimension(1142, 247));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo menu.png"))); // NOI18N
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 765, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        lblUsuario.setText("Usuário");
+
+        lblData.setText("Data");
+
+        lblHora.setText("Hora");
 
         jMenuColecao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cole32.png"))); // NOI18N
         jMenuColecao.setText("Coleções");
 
+        jSubColDvd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
         jSubColDvd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_coleção.png"))); // NOI18N
         jSubColDvd.setText("DVD´s");
         jSubColDvd.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +96,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuFerramenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/tool6.png"))); // NOI18N
         jMenuFerramenta.setText("Ferramentas");
 
+        jSubFerAgenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
         jSubFerAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agenda_1.png"))); // NOI18N
         jSubFerAgenda.setText("Agenda");
         jSubFerAgenda.addActionListener(new java.awt.event.ActionListener() {
@@ -73,18 +108,29 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuFerramenta);
 
-        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
-        jMenuSair.setText("Sair");
+        jSubMenRepDvd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Report_669954.png"))); // NOI18N
+        jSubMenRepDvd.setText("Relatórios");
 
-        jSubSairSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
-        jSubSairSair.setText("Sair");
-        jSubSairSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jSubSairSair.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dvd_report_24.png"))); // NOI18N
+        jMenuItem1.setText("DVD´s");
+        jSubMenRepDvd.add(jMenuItem1);
+
+        jMenuBar.add(jSubMenRepDvd);
+
+        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
+        jMenuSair.setText("Opções");
+
+        jSubMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
+        jSubMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saindo.png"))); // NOI18N
+        jSubMenuSair.setText("Sair");
+        jSubMenuSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jSubMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSubSairSairActionPerformed(evt);
+                jSubMenuSairActionPerformed(evt);
             }
         });
-        jMenuSair.add(jSubSairSair);
+        jMenuSair.add(jSubMenuSair);
 
         jMenuBar.add(jMenuSair);
 
@@ -94,22 +140,31 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblConMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblData)
+                    .addComponent(lblUsuario)
+                    .addComponent(lblHora))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblConMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lblUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(lblData)
+                .addGap(18, 18, 18)
+                .addComponent(lblHora)
+                .addContainerGap(296, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1)
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(1063, 677));
+        setSize(new java.awt.Dimension(917, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,16 +172,33 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jSubFerAgendaActionPerformed
 
-    private void jSubSairSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSubSairSairActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jSubSairSairActionPerformed
+    private void jSubMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSubMenuSairActionPerformed
+        // Exibe uma caixa de diálogo
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?","Atenção",JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+        
+    }//GEN-LAST:event_jSubMenuSairActionPerformed
 
     private void jSubColDvdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSubColDvdActionPerformed
         Principal tela = new Principal();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jSubColDvdActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+//      As linhas abaixo prenchem os campos de usuario data e hora da tela de menu
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        lblData.setText(formato.format(dataSistema));
+        
+//         Hora no rodapé
+          Timer timer = new Timer(1000, new Menu.hora());
+          timer.start();
+        
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -164,15 +236,30 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuColecao;
     private javax.swing.JMenu jMenuFerramenta;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenuItem jSubColDvd;
     private javax.swing.JMenuItem jSubFerAgenda;
-    private javax.swing.JMenuItem jSubSairSair;
-    private javax.swing.JLabel lblConMenu;
+    private javax.swing.JMenu jSubMenRepDvd;
+    private javax.swing.JMenuItem jSubMenuSair;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 
+    class hora implements ActionListener {
+@Override
+public void actionPerformed(ActionEvent e) {
+Calendar now = Calendar.getInstance();
+lblHora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+}
+}
+    
+    
+    
+    
 }
